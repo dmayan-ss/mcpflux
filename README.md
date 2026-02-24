@@ -26,7 +26,7 @@ Write operations (`CREATE`, `DROP`, `DELETE`, `INSERT`, etc.) are blocked at the
 
 ### Claude Desktop (extension)
 
-Download the latest `.mcpb` from [Releases](https://github.com/dmayan-ss/mcflux/releases), then:
+Download the latest `.mcpb` from [Releases](https://github.com/dmayan-ss/mcpflux/releases), then:
 
 1. Open Claude Desktop
 2. Go to **Settings > Extensions > Advanced settings**
