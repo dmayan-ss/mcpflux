@@ -1,0 +1,34 @@
+{
+  "manifest_version": "0.2",
+  "name": "mcflux-influxdb",
+  "version": "0.1.0",
+  "description": "Read-only MCP server for querying and exploring InfluxDB v1 instances. Supports listing databases, measurements, tags, fields, and executing InfluxQL queries.",
+  "author": {
+    "name": "Diego Mayán",
+    "email": "diego.mayan@ssservicios.com.ar"
+  },
+  "display_name": "InfluxDB v1",
+  "server": {
+    "type": "python",
+    "entry_point": "server.py",
+    "mcp_config": {
+      "command": "uv",
+      "args": [
+        "--directory",
+        "${__dirname}",
+        "run",
+        "server.py"
+      ],
+      "env": {
+        "INFLUXDB_URL": "",
+        "INFLUXDB_USERNAME": "",
+        "INFLUXDB_PASSWORD": ""
+      }
+    }
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dmayan-ss/mcflux"
+  }
+}
