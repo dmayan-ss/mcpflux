@@ -1,13 +1,35 @@
 {
-  "manifest_version": "0.2",
+  "manifest_version": "0.3",
   "name": "mcflux-influxdb",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Read-only MCP server for querying and exploring InfluxDB v1 instances. Supports listing databases, measurements, tags, fields, and executing InfluxQL queries.",
   "author": {
     "name": "Diego Mayán",
     "email": "diego.mayan@ssservicios.com.ar"
   },
   "display_name": "InfluxDB v1",
+  "user_config": {
+    "influxdb_url": {
+      "type": "string",
+      "title": "InfluxDB URL",
+      "description": "HTTP API URL of your InfluxDB v1 instance (e.g., http://localhost:8086)",
+      "required": true,
+      "default": "http://localhost:8086"
+    },
+    "influxdb_username": {
+      "type": "string",
+      "title": "Username",
+      "description": "Username for basic authentication (leave empty for no auth)",
+      "required": false
+    },
+    "influxdb_password": {
+      "type": "string",
+      "title": "Password",
+      "description": "Password for basic authentication",
+      "sensitive": true,
+      "required": false
+    }
+  },
   "server": {
     "type": "python",
     "entry_point": "server.py",
@@ -20,9 +42,9 @@
         "server.py"
       ],
       "env": {
-        "INFLUXDB_URL": "",
-        "INFLUXDB_USERNAME": "",
-        "INFLUXDB_PASSWORD": ""
+        "INFLUXDB_URL": "${user_config.influxdb_url}",
+        "INFLUXDB_USERNAME": "${user_config.influxdb_username}",
+        "INFLUXDB_PASSWORD": "${user_config.influxdb_password}"
       }
     }
   },
